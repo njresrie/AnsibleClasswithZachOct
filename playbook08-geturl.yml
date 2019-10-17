@@ -1,0 +1,21 @@
+---
+- name: Copy hosts file to hosts
+  hosts: planetexpress
+  gather_facts: no
+
+  tasks:
+          - name: Clean up
+            file:
+                    path: "/home/{{ ansible_user }}/fryresume.txt"
+                    state: absent
+
+          - name: Copy resume
+            copy:
+                    src: ~/ans/files/rollins.txt
+                    dest: "/home/{{ ansible_user }}/fryresume.txt"
+                    
+          - name: download a file to my remote servers
+            get_url:
+                    url: http://www.clamav.net/downloads/production/clamav-0.99.3.tar.gz
+                    dest: ~/clamav-0.99.3.tar.gz
+

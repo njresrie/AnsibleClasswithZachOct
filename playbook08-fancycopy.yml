@@ -1,0 +1,16 @@
+---
+- name: Copy hosts file to hosts
+  hosts: planetexpress:!zoidberg
+  gather_facts: no
+
+  tasks:
+          - name: Clean up
+            file:
+                    path: "/home/{{ ansible_user }}/fryresume.txt"
+                    state: absent
+
+          - name: Copy resume
+            copy:
+                    src: ~/ans/files/rollins.txt
+                    dest: "/home/{{ ansible_user }}/fryresume.txt"
+

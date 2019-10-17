@@ -1,0 +1,11 @@
+---
+- name: Copy hosts file to hosts
+  hosts: planetexpress
+  gather_facts: yes
+
+  tasks:
+          - name: Copy resume
+            copy:
+                    src: ~/ans/files/rollins.txt
+                    dest: /var/tmp/rollins.txt
+
