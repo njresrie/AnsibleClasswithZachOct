@@ -1,0 +1,5 @@
+---
+- name: Our custom module
+  hosts: localhost
+
+  tasks: :w
